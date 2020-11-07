@@ -11,7 +11,6 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TecnicoDTO {
-
     private Long id;
     private String nome;
     private String rg;
