@@ -93,11 +93,24 @@ public class TecnicoController {
         return tecnicoService.delete(id);
     }
 
-    @RequestMapping(value="/flux20", method= RequestMethod.GET)
-    public ResponseEntity<List<TecnicoDTO>> findAll() {
+    @RequestMapping(value="/flux20Ativos", method= RequestMethod.GET)
+    public ResponseEntity<List<TecnicoDTO>> findAllAtivos() {
         Flux<Tecnico> listFlux = tecnicoService.findAll();
         List<TecnicoDTO> listDto = listFlux.toStream()
                 .sorted(Comparator.comparing(Tecnico::getId).reversed())
+                .filter(c -> c.getStatus().equals("Ativo"))
+                .map(TecnicoDTO::new)
+                .limit(20)
+                .collect( Collectors.toList());
+        return ResponseEntity.ok().body(listDto);
+    }
+
+    @RequestMapping(value="/flux20Inativos", method= RequestMethod.GET)
+    public ResponseEntity<List<TecnicoDTO>> findAllInativos() {
+        Flux<Tecnico> listFlux = tecnicoService.findAll();
+        List<TecnicoDTO> listDto = listFlux.toStream()
+                .sorted(Comparator.comparing(Tecnico::getId).reversed())
+                .filter(c -> c.getStatus().equals("Inativos"))
                 .map(TecnicoDTO::new)
                 .limit(20)
                 .collect( Collectors.toList());
