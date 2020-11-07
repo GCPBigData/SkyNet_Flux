@@ -18,7 +18,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/v1/tecnicos/")
+@RequestMapping("tecnicos")
 @Slf4j
 @RequiredArgsConstructor
 @SecurityScheme(
@@ -28,11 +28,7 @@ import java.util.List;
 )
 public class TecnicoController {
 
-    private TecnicoService tecnicoService;
-
-    public TecnicoController(TecnicoService tecnicoService) {
-        this.tecnicoService = tecnicoService;
-    }
+    private final TecnicoService tecnicoService;
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
@@ -43,13 +39,14 @@ public class TecnicoController {
     public Flux<Tecnico> listAll() {
         return tecnicoService.findAll();
     }
+/*
 
     @GetMapping(path = "{id}")
     @ResponseStatus(HttpStatus.OK)
     @Operation(
             security = @SecurityRequirement(name = "Basic Authentication"),
             tags = {"tecnico"})
-    public Mono<Tecnico> findById(@PathVariable long id) {
+    public Mono<Tecnico> findById(@PathVariable int id) {
         return tecnicoService.findById(id);
     }
 
@@ -76,7 +73,7 @@ public class TecnicoController {
     @Operation(
             security = @SecurityRequirement(name = "Basic Authentication"),
             tags = {"tecnico"})
-    public Mono<Void> update(@PathVariable long id, @Valid @RequestBody Tecnico tecnico) {
+    public Mono<Void> update(@PathVariable int id, @Valid @RequestBody Tecnico tecnico) {
         return tecnicoService.update(tecnico.withId(id));
     }
 
@@ -88,5 +85,6 @@ public class TecnicoController {
     public Mono<Void> delete(@PathVariable int id) {
         return tecnicoService.delete(id);
     }
+*/
 
 }

@@ -17,56 +17,35 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Builder
 @With
-@Table("TECNICO")
+@Table("tecnico")
 public class Tecnico {
 
     @Id
-    @Column("id")
-    private Long id;
-
-    private String nome;
-
-    private String rg;
-
-    private String cpf;
-
+    Integer id;
+    String nome;
+    String rg;
+    String cpf;
     @Column("data_nascimento")
-    private LocalDate dataNascimento;
-
-    private String nomeMae;
-
-    private String endereco;
-
-    private String cidade;
-
-    private String estado;
-
-    private String cep;
-
-    private String pais;
-
-    private String telefone;
-
+    LocalDate dataNascimento;
+    String nomeMae;
+    String endereco;
+    String cidade;
+    String estado;
+    String cep;
+    String pais;
+    String telefone;
     @Column("valor_chamado")
-    private BigDecimal valorChamado;
-
+    BigDecimal valorChamado;
     @Column("valor_hora")
-    private BigDecimal valorHora;
-
+    BigDecimal valorHora;
     @Column("valor_mensal")
-    private BigDecimal valorMes;
-
-    private String banco;
-
-    private String agencia;
-
-    private String conta;
-
+    BigDecimal valorMes;
+    String banco;
+    String agencia;
+    String conta;
     @Column("titular_conta")
-    private String nomeTitularConta;
-
+    String nomeTitularConta;
     @Column("cpf_titular_conta")
-    private String cpfTitularConta;
-
+    String cpfTitularConta;
 
 }

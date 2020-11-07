@@ -88,7 +88,7 @@ class AnimeServiceTest {
             .verifyComplete();
     }
 
-    @Test
+   /* @Test
     @DisplayName("findById returns a Mono with anime when it exists")
     public void findById_ReturnMonoAnime_WhenSuccessful() {
         StepVerifier.create(animeService.findById(1))
@@ -186,6 +186,6 @@ class AnimeServiceTest {
             .expectSubscription()
             .expectError(ResponseStatusException.class)
             .verify();
-    }
+    }*/
 
 }

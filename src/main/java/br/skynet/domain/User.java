@@ -18,6 +18,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Table("login_user")
 public class User implements UserDetails {
 
+    //1,admin,admin,{bcrypt}$2a$10$62G2DfTMpiQasT4WwbDXUuJly3pZYUVRn/qYbQA7PV5yTSkS6SGTe,"ROLE_ADMIN,ROLE_USER"
+
     @Id
     private Integer id;
     private String name;

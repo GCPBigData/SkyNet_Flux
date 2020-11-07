@@ -1,6 +1,5 @@
 package br.skynet.service;
 
-import br.skynet.domain.Anime;
 import br.skynet.domain.Tecnico;
 import br.skynet.repository.TecnicoRepository;
 import io.netty.util.internal.StringUtil;
@@ -19,17 +18,13 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 public class TecnicoService {
 
-    private TecnicoRepository tecnicoRepository;
-
-    public TecnicoService(TecnicoRepository tecnicoRepository) {
-        this.tecnicoRepository = tecnicoRepository;
-    }
+    private final TecnicoRepository tecnicoRepository;
 
     public Flux<Tecnico> findAll() {
         return tecnicoRepository.findAll();
     }
-
-    public Mono<Tecnico> findById(long id) {
+/*
+    public Mono<Tecnico> findById(int id) {
         return tecnicoRepository.findById(id)
                 .switchIfEmpty(monoResponseStatusNotFoundException());
     }
@@ -63,5 +58,5 @@ public class TecnicoService {
 
     public <T> Mono<T> monoResponseStatusNotFoundException() {
         return Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, "Tecnico not found"));
-    }
+    }*/
 }

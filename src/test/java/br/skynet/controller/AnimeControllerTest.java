@@ -44,7 +44,7 @@ class AnimeControllerTest {
     public void setUp() {
         BDDMockito.when(animeServiceMock.findAll())
             .thenReturn(Flux.just(anime));
-
+/*
         BDDMockito.when(animeServiceMock.findById(ArgumentMatchers.anyInt()))
             .thenReturn(Mono.just(anime));
 
@@ -59,7 +59,7 @@ class AnimeControllerTest {
             .thenReturn(Mono.empty());
 
         BDDMockito.when(animeServiceMock.update(AnimeCreator.createValidAnime()))
-            .thenReturn(Mono.empty());
+            .thenReturn(Mono.empty());*/
     }
 
     @Test
@@ -86,7 +86,7 @@ class AnimeControllerTest {
             .expectNext(anime)
             .verifyComplete();
     }
-
+/*
     @Test
     @DisplayName("findById returns a Mono with anime when it exists")
     public void findById_ReturnMonoAnime_WhenSuccessful() {
@@ -132,5 +132,5 @@ class AnimeControllerTest {
         StepVerifier.create(animeController.update(1, AnimeCreator.createValidAnime()))
             .expectSubscription()
             .verifyComplete();
-    }
+    }*/
 }

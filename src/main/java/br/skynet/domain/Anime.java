@@ -19,9 +19,9 @@ import org.springframework.data.relational.core.mapping.Table;
 public class Anime {
 
     @Id
-    private Integer id;
+    Integer id;
     @NotNull
     @NotEmpty(message = "The name of this anime cannot be empty")
-    private String name;
+    String name;
 
 }
