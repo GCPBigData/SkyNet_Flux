@@ -11,6 +11,7 @@ import org.springframework.data.relational.core.mapping.Table;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -47,6 +48,8 @@ public class Tecnico {
     String nomeTitularConta;
     @Column("cpf_titular_conta")
     String cpfTitularConta;
+    String status;
+    LocalDateTime dataCadastro = LocalDateTime.now();
 
     public Integer getId() {
         return id;
@@ -206,5 +209,21 @@ public class Tecnico {
 
     public void setCpfTitularConta(String cpfTitularConta) {
         this.cpfTitularConta = cpfTitularConta;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public LocalDateTime getDataCadastro() {
+        return dataCadastro;
+    }
+
+    public void setDataCadastro(LocalDateTime dataCadastro) {
+        this.dataCadastro = dataCadastro;
     }
 }

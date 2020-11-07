@@ -7,31 +7,34 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class TecnicoDTO {
-    private Integer id;
-    private String nome;
-    private String rg;
-    private String cpf;
-    private LocalDate dataNascimento;
-    private String nomeMae;
-    private String endereco;
-    private String cidade;
-    private String estado;
-    private String cep;
-    private String pais;
-    private String telefone;
-    private BigDecimal valorChamado;
-    private BigDecimal valorHora;
-    private BigDecimal valorMes;
-    private String banco;
-    private String agencia;
-    private String conta;
-    private String nomeTitularConta;
-    private String cpfTitularConta;
+     Integer id;
+     String nome;
+     String rg;
+     String cpf;
+     LocalDate dataNascimento;
+     String nomeMae;
+     String endereco;
+     String cidade;
+     String estado;
+     String cep;
+     String pais;
+     String telefone;
+     BigDecimal valorChamado;
+     BigDecimal valorHora;
+     BigDecimal valorMes;
+     String banco;
+     String agencia;
+     String conta;
+     String nomeTitularConta;
+     String cpfTitularConta;
+     String status;
+     LocalDateTime dataCadastro = LocalDateTime.now();
 
     public TecnicoDTO(Tecnico objTecnico) {
         id = objTecnico.getId();
@@ -54,5 +57,7 @@ public class TecnicoDTO {
         conta = objTecnico.getConta();
         nomeTitularConta = objTecnico.getNomeTitularConta();
         cpfTitularConta = objTecnico.getCpfTitularConta();
+        status = objTecnico.getStatus();
+        dataCadastro = objTecnico.getDataCadastro();
     }
 }
