@@ -1,6 +1,5 @@
 package br.skynet.service;
 
-import br.skynet.domain.Anime;
 import br.skynet.repository.AnimeRepository;
 import br.skynet.util.AnimeCreator;
 import java.util.List;
@@ -17,7 +16,6 @@ import org.mockito.BDDMockito;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.web.server.ResponseStatusException;
 import reactor.blockhound.BlockHound;
 import reactor.blockhound.BlockingOperationError;
 import reactor.core.publisher.Flux;

@@ -1,7 +1,5 @@
 package br.skynet.util;
 
-import br.skynet.domain.Anime;
-
 public class AnimeCreator {
 
     public static Anime createAnimeToBeSaved() {

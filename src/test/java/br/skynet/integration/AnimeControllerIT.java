@@ -1,6 +1,5 @@
 package br.skynet.integration;
 
-import br.skynet.domain.Anime;
 import br.skynet.repository.AnimeRepository;
 import br.skynet.util.AnimeCreator;
 import java.util.List;

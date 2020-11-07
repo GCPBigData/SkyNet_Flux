@@ -1,6 +1,5 @@
 package br.skynet.repository;
 
-import br.skynet.domain.Anime;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import reactor.core.publisher.Mono;
 
