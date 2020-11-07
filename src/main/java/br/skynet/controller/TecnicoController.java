@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +29,8 @@ import java.util.List;
 )
 public class TecnicoController {
 
-    private final TecnicoService tecnicoService;
+    @Autowired
+    private TecnicoService tecnicoService;
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
