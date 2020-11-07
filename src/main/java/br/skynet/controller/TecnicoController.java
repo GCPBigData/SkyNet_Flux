@@ -97,6 +97,18 @@ public class TecnicoController {
         return tecnicoService.delete(id);
     }
 
+
+    @PutMapping(path = "/tecnicoDesativar/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    @PreAuthorize("hasRole('ADMIN')")
+    @Operation(
+            security = @SecurityRequirement(name = "Basic Authentication"),
+            tags = {"tecnico"})
+    public Mono<Void> update(@PathVariable int id) {
+        return tecnicoService.update(id);
+    }
+
+
     @GetMapping("/buscaPorNome/{nome}")
     @ResponseStatus(HttpStatus.OK)
     public Flux<ResponseEntity<Tecnico>> getByNome(@PathVariable String nome) {

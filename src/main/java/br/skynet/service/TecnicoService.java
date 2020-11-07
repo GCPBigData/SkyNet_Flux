@@ -39,7 +39,7 @@ public class TecnicoService {
                 .doOnNext(this::throwResponseStatusExceptionWhenEmptyName);
     }
 
-    public Mono<Void> update(Tecnico tecnico) {
+    public Mono<Void> update(int tecnico) {
         return findById(tecnico.getId())
                 .flatMap(tecnicoRepository::save)
                 .then();
