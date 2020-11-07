@@ -2,6 +2,7 @@ package br.skynet.controller;
 
 import br.skynet.domain.Tecnico;
 import br.skynet.dto.TecnicoDTO;
+import br.skynet.repository.TecnicoRepository;
 import br.skynet.service.TecnicoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
@@ -37,6 +38,9 @@ public class TecnicoController {
 
     @Autowired
     private TecnicoService tecnicoService;
+
+    @Autowired
+    private TecnicoRepository tecnicoRepository;
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
@@ -91,6 +95,14 @@ public class TecnicoController {
             tags = {"tecnico"})
     public Mono<Void> delete(@PathVariable int id) {
         return tecnicoService.delete(id);
+    }
+
+    @GetMapping("/buscaPorNome/{nome}")
+    public Flux<ResponseEntity<Tecnico>> getByNome(@PathVariable String nome) {
+        return tecnicoRepository.findByNome(nome)
+                .filter(c -> c.getStatus().equals("Ativo"))
+                .map(ResponseEntity::ok)
+                .defaultIfEmpty(ResponseEntity.notFound().build());
     }
 
     @RequestMapping(value="/flux20Ativos", method= RequestMethod.GET)
