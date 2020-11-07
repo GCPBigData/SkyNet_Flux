@@ -98,6 +98,7 @@ public class TecnicoController {
     }
 
     @GetMapping("/buscaPorNome/{nome}")
+    @ResponseStatus(HttpStatus.OK)
     public Flux<ResponseEntity<Tecnico>> getByNome(@PathVariable String nome) {
         return tecnicoRepository.findByNome(nome)
                 .filter(c -> c.getStatus().equals("Ativo"))
@@ -106,6 +107,7 @@ public class TecnicoController {
     }
 
     @RequestMapping(value="/flux20Ativos", method= RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<List<TecnicoDTO>> findAllAtivos() {
         Flux<Tecnico> listFlux = tecnicoService.findAll();
         List<TecnicoDTO> listDto = listFlux.toStream()
@@ -118,6 +120,7 @@ public class TecnicoController {
     }
 
     @RequestMapping(value="/flux20Inativos", method= RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<List<TecnicoDTO>> findAllInativos() {
         Flux<Tecnico> listFlux = tecnicoService.findAll();
         List<TecnicoDTO> listDto = listFlux.toStream()
