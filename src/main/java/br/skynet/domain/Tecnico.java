@@ -12,6 +12,7 @@ import org.springframework.data.relational.core.mapping.Table;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Data
 @AllArgsConstructor
@@ -226,4 +227,67 @@ public class Tecnico {
     public void setDataCadastro(LocalDateTime dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Tecnico)) return false;
+        Tecnico tecnico = (Tecnico) o;
+        return getId().equals(tecnico.getId()) &&
+                getNome().equals(tecnico.getNome()) &&
+                getRg().equals(tecnico.getRg()) &&
+                getCpf().equals(tecnico.getCpf()) &&
+                getDataNascimento().equals(tecnico.getDataNascimento()) &&
+                getNomeMae().equals(tecnico.getNomeMae()) &&
+                getEndereco().equals(tecnico.getEndereco()) &&
+                getCidade().equals(tecnico.getCidade()) &&
+                getEstado().equals(tecnico.getEstado()) &&
+                getCep().equals(tecnico.getCep()) &&
+                getPais().equals(tecnico.getPais()) &&
+                getTelefone().equals(tecnico.getTelefone()) &&
+                getValorChamado().equals(tecnico.getValorChamado()) &&
+                getValorHora().equals(tecnico.getValorHora()) &&
+                getValorMes().equals(tecnico.getValorMes()) &&
+                getBanco().equals(tecnico.getBanco()) &&
+                getAgencia().equals(tecnico.getAgencia()) &&
+                getConta().equals(tecnico.getConta()) &&
+                getNomeTitularConta().equals(tecnico.getNomeTitularConta()) &&
+                getCpfTitularConta().equals(tecnico.getCpfTitularConta()) &&
+                getStatus().equals(tecnico.getStatus()) &&
+                getDataCadastro().equals(tecnico.getDataCadastro());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getNome(), getRg(), getCpf(), getDataNascimento(), getNomeMae(), getEndereco(), getCidade(), getEstado(), getCep(), getPais(), getTelefone(), getValorChamado(), getValorHora(), getValorMes(), getBanco(), getAgencia(), getConta(), getNomeTitularConta(), getCpfTitularConta(), getStatus(), getDataCadastro());
+    }
+
+    @Override
+    public String toString() {
+        return "Tecnico{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", rg='" + rg + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", dataNascimento=" + dataNascimento +
+                ", nomeMae='" + nomeMae + '\'' +
+                ", endereco='" + endereco + '\'' +
+                ", cidade='" + cidade + '\'' +
+                ", estado='" + estado + '\'' +
+                ", cep='" + cep + '\'' +
+                ", pais='" + pais + '\'' +
+                ", telefone='" + telefone + '\'' +
+                ", valorChamado=" + valorChamado +
+                ", valorHora=" + valorHora +
+                ", valorMes=" + valorMes +
+                ", banco='" + banco + '\'' +
+                ", agencia='" + agencia + '\'' +
+                ", conta='" + conta + '\'' +
+                ", nomeTitularConta='" + nomeTitularConta + '\'' +
+                ", cpfTitularConta='" + cpfTitularConta + '\'' +
+                ", status='" + status + '\'' +
+                ", dataCadastro=" + dataCadastro +
+                '}';
+    }
+
 }
