@@ -101,11 +101,16 @@ public class TecnicoController {
     @PutMapping(path = "/tecnicoDesativar/{id}")
     @ResponseStatus(HttpStatus.OK)
     @PreAuthorize("hasRole('ADMIN')")
-    @Operation(
-            security = @SecurityRequirement(name = "Basic Authentication"),
-            tags = {"tecnico"})
-    public Mono<Void> update(@PathVariable int id) {
-        return tecnicoService.update(id);
+    public Mono<ResponseEntity<Tecnico>>
+    updatePessoa(@PathVariable(value="id") int id,
+                 @RequestBody Tecnico tecnico) {
+        return tecnicoService.findById(id)
+                .flatMap(tecnicoExiste -> {
+                    tecnico.setStatus(tecnico.getStatus());
+                    return tecnicoService.update(tecnico);
+                })
+                .map(updatePessoa -> ResponseEntity.ok(updatePessoa))
+                .defaultIfEmpty(ResponseEntity.notFound().build());
     }
 
 
