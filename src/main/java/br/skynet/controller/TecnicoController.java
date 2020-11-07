@@ -1,6 +1,7 @@
 package br.skynet.controller;
 
 import br.skynet.domain.Tecnico;
+import br.skynet.dto.TecnicoDTO;
 import br.skynet.service.TecnicoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
@@ -10,13 +11,18 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import javax.validation.Valid;
+import java.time.Duration;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("tecnicos")
@@ -85,5 +91,21 @@ public class TecnicoController {
             tags = {"tecnico"})
     public Mono<Void> delete(@PathVariable int id) {
         return tecnicoService.delete(id);
+    }
+
+    @RequestMapping(value="/flux20", method= RequestMethod.GET)
+    public ResponseEntity<List<TecnicoDTO>> findAll() {
+        Flux<Tecnico> listFlux = tecnicoService.findAll();
+        List<TecnicoDTO> listDto = listFlux.toStream()
+                .sorted(Comparator.comparing(Tecnico::getId).reversed())
+                .map(TecnicoDTO::new)
+                .limit(20)
+                .collect( Collectors.toList());
+        return ResponseEntity.ok().body(listDto);
+    }
+
+    @GetMapping(value = "/stream", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    public Flux<Tecnico> streamTecnicoStatus() {
+        return tecnicoService.findAll().delayElements(Duration.ofSeconds(1));
     }
 }

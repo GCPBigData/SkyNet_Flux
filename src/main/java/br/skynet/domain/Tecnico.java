@@ -48,4 +48,163 @@ public class Tecnico {
     @Column("cpf_titular_conta")
     String cpfTitularConta;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getRg() {
+        return rg;
+    }
+
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public String getNomeMae() {
+        return nomeMae;
+    }
+
+    public void setNomeMae(String nomeMae) {
+        this.nomeMae = nomeMae;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public BigDecimal getValorChamado() {
+        return valorChamado;
+    }
+
+    public void setValorChamado(BigDecimal valorChamado) {
+        this.valorChamado = valorChamado;
+    }
+
+    public BigDecimal getValorHora() {
+        return valorHora;
+    }
+
+    public void setValorHora(BigDecimal valorHora) {
+        this.valorHora = valorHora;
+    }
+
+    public BigDecimal getValorMes() {
+        return valorMes;
+    }
+
+    public void setValorMes(BigDecimal valorMes) {
+        this.valorMes = valorMes;
+    }
+
+    public String getBanco() {
+        return banco;
+    }
+
+    public void setBanco(String banco) {
+        this.banco = banco;
+    }
+
+    public String getAgencia() {
+        return agencia;
+    }
+
+    public void setAgencia(String agencia) {
+        this.agencia = agencia;
+    }
+
+    public String getConta() {
+        return conta;
+    }
+
+    public void setConta(String conta) {
+        this.conta = conta;
+    }
+
+    public String getNomeTitularConta() {
+        return nomeTitularConta;
+    }
+
+    public void setNomeTitularConta(String nomeTitularConta) {
+        this.nomeTitularConta = nomeTitularConta;
+    }
+
+    public String getCpfTitularConta() {
+        return cpfTitularConta;
+    }
+
+    public void setCpfTitularConta(String cpfTitularConta) {
+        this.cpfTitularConta = cpfTitularConta;
+    }
 }

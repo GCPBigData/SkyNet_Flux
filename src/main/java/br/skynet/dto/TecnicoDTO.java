@@ -1,5 +1,6 @@
 package br.skynet.dto;
 
+import br.skynet.domain.Tecnico;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,7 +12,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TecnicoDTO {
-    private Long id;
+    private Integer id;
     private String nome;
     private String rg;
     private String cpf;
@@ -31,4 +32,27 @@ public class TecnicoDTO {
     private String conta;
     private String nomeTitularConta;
     private String cpfTitularConta;
+
+    public TecnicoDTO(Tecnico objTecnico) {
+        id = objTecnico.getId();
+        nome = objTecnico.getNome();
+        rg = objTecnico.getRg();
+        cpf = objTecnico.getCpf();
+        dataNascimento = objTecnico.getDataNascimento();
+        nomeMae = objTecnico.getNomeMae();
+        endereco = objTecnico.getEndereco();
+        cidade = objTecnico.getCidade();
+        estado = objTecnico.getEstado();
+        cep = objTecnico.getCep();
+        pais = objTecnico.getPais();
+        telefone = objTecnico.getTelefone();
+        valorChamado = objTecnico.getValorChamado();
+        valorHora = objTecnico.getValorHora();
+        valorMes = objTecnico.getValorMes();
+        banco = objTecnico.getBanco();
+        agencia = objTecnico.getAgencia();
+        conta = objTecnico.getConta();
+        nomeTitularConta = objTecnico.getNomeTitularConta();
+        cpfTitularConta = objTecnico.getCpfTitularConta();
+    }
 }
