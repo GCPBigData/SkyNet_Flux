@@ -23,7 +23,7 @@ public class TecnicoService {
     public Flux<Tecnico> findAll() {
         return tecnicoRepository.findAll();
     }
-/*
+
     public Mono<Tecnico> findById(int id) {
         return tecnicoRepository.findById(id)
                 .switchIfEmpty(monoResponseStatusNotFoundException());
@@ -58,5 +58,5 @@ public class TecnicoService {
 
     public <T> Mono<T> monoResponseStatusNotFoundException() {
         return Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, "Tecnico not found"));
-    }*/
+    }
 }

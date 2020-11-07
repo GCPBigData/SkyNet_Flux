@@ -39,7 +39,6 @@ public class TecnicoController {
     public Flux<Tecnico> listAll() {
         return tecnicoService.findAll();
     }
-/*
 
     @GetMapping(path = "{id}")
     @ResponseStatus(HttpStatus.OK)
@@ -85,6 +84,4 @@ public class TecnicoController {
     public Mono<Void> delete(@PathVariable int id) {
         return tecnicoService.delete(id);
     }
-*/
-
 }

@@ -23,7 +23,7 @@ public class AnimeService {
     public Flux<Anime> findAll() {
         return animeRepository.findAll();
     }
-/*
+
     public Mono<Anime> findById(int id) {
         return animeRepository.findById(id)
             .switchIfEmpty(monoResponseStatusNotFoundException());
@@ -58,5 +58,5 @@ public class AnimeService {
     public Mono<Void> delete(int id) {
         return findById(id)
             .flatMap(animeRepository::delete);
-    }*/
+    }
 }

@@ -46,7 +46,6 @@ public class AnimeController {
     public Flux<Anime> listAll() {
         return animeService.findAll();
     }
-/*
 
     @GetMapping(path = "{id}")
     @ResponseStatus(HttpStatus.OK)
@@ -92,6 +91,5 @@ public class AnimeController {
     public Mono<Void> delete(@PathVariable int id) {
         return animeService.delete(id);
     }
-*/
 
 }
